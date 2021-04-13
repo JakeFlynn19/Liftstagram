@@ -1,8 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
 * {
   box-sizing: border-box;
 }
+  
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
 
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  font-family: 'Dela Gothic One', cursive;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  padding-left: 1rem;
+  background-color: black;
+  box-shadow: 1px 1px 5px 3px #808080;
+  color: #ffffff;
+}
+header > h1 {
+  justify-content: center;
+}
+
+header > ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+header > ul li {
+  margin-right: 10px;
+}
+
+.auth-link:hover {
+  cursor: pointer;
+}
+
+header > ul img {
+  height: 2rem;
+  border-radius: 50%;
+}
+
+main {
+  flex-grow: 1; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+section > article {
+  display: flex;
+  justify-content: space-between;
+  min-width: 15rem;
+  color: white;
+  margin: 0.1rem;
+  background-color: black;
+}
+  
+article > div {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+article > div:nth-child(1) {
+  flex-grow: 1;
+}
+  
+article > div:nth-child(2) {
+  width: 2rem;
+  background-color: black;
+}
+
+article > div:nth-child(3) {
+  width: 2rem;
+  background-color: black;
+}
+
+article > div:nth-child(4) {
+  width: 2rem;
+  background-color: black;
+}
+
+article > div:nth-child(2):hover, 
+article > div:nth-child(3):hover,
+article > div:nth-child(4):hover {
+  box-shadow: 1px 1px 2px 2px #808080;
+  cursor: pointer;
+}
+  
+label {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+  
+label span {
+  color: black;
+}
+  
+  
+button {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin: 0.5rem 0 0 auto;
+  padding: 0.4rem;
+  background-color: black;
+  color: white;
+  border: none;
+  outline: none;
+}
+  
+button:hover {
+  color: white;
+  background-color: #737495;
+}
+
+img {
+  height: 2rem;
+}

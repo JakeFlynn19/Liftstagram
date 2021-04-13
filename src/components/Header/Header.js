@@ -1,9 +1,9 @@
 import { login, logout } from "../../services/firebase";
-import './Header.css';
 
 const Header = (props) => (
-  <header>
-    <h1>Liftstagram</h1>
+    <header>
+        <img src='https://t3.ftcdn.net/jpg/03/30/47/88/360_F_330478859_qqY6bmj9D93FwsLMFSlV7Pn1ZA4U8OHp.jpg' alt='logo'/>
+    <h1>LIFTSTAGRAM</h1>
     <ul>
       {props.user ? (
         <>
@@ -18,7 +18,7 @@ const Header = (props) => (
         <li onClick={login}>Login</li>
       )}
     </ul>
-  </header>
+    </header>
 );
 
 export default Header;
