@@ -19,7 +19,7 @@ export default function App() {
   async function getAppData() {
     if (!state.user) return;
     try {
-      const BASE_URL = `http://localhost:3001/api/posts?uid=${state.user.uid}`;
+      const BASE_URL = `https://liftstagram.herokuapp.com/api/posts?uid=${state.user.uid}`;
       const posts = await fetch(BASE_URL).then((res) => res.json());
       setState((prevState) => ({
         ...prevState,
@@ -47,6 +47,7 @@ export default function App() {
         }));
       }
     });
+    // eslint-disable-next-line
   }, [state.user]);
 
   async function handleSubmit(e) {
@@ -54,7 +55,7 @@ export default function App() {
 
     e.preventDefault();
 
-    const BASE_URL = "http://localhost:3001/api/posts";
+    const BASE_URL = "https://liftstagram.herokuapp.com/api/posts";
 
     if (!state.editMode) {
       const posts = await fetch(BASE_URL, {
@@ -110,7 +111,7 @@ export default function App() {
 
   async function handleDelete(postId) {
     if (!state.user) return;
-    const URL = `http://localhost:3001/api/posts/${postId}`;
+    const URL = `https://liftstagram.herokuapp.com/api/posts/${postId}`;
 
     const posts = await fetch(URL, {
       method: "DELETE",
