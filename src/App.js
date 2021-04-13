@@ -10,6 +10,7 @@ export default function App() {
     posts: [],
     newPost: {
       exercise: "",
+      weight: "",
       sets: "",
       reps: "",
     },
@@ -71,19 +72,20 @@ export default function App() {
         posts,
         newPost: {
           exercise: "",
+          weight: "",
           sets: "",
           reps: "",
         },
       }));
     } else {
-      const { exercise, sets, reps, _id } = state.newPost;
+      const { exercise, weight, sets, reps, _id } = state.newPost;
 
       const posts = await fetch(`${BASE_URL}/${_id}`, {
         method: "PUT",
         headers: {
           "Content-type": "Application/json",
         },
-        body: JSON.stringify({ exercise, sets, reps }),
+        body: JSON.stringify({ exercise, weight, sets, reps }),
       }).then((res) => res.json());
 
       setState((prevState) => ({
@@ -91,6 +93,7 @@ export default function App() {
         posts,
         newPost: {
           exercise: "",
+          weight: "",
           sets: "",
           reps: "",
         },
@@ -124,13 +127,14 @@ export default function App() {
   }
 
   function handleEdit(postId) {
-    const { exercise, sets, reps, _id } = state.posts.find(
+    const { exercise, weight, sets, reps, _id } = state.posts.find(
       (post) => post._id === postId
     );
     setState((prevState) => ({
       ...prevState,
       newPost: {
         exercise,
+        weight,
         sets,
         reps,
         _id,
@@ -144,6 +148,7 @@ export default function App() {
       ...prevState,
       newPost: {
         exercise: "",
+        weight: "",
         sets: "",
         reps: "",
       },
@@ -166,6 +171,14 @@ export default function App() {
                     value={state.newPost.exercise}
                     onChange={handleChange}
                   />
+                </label>
+                <label>
+                  <span>WEIGHT</span>
+                  <input
+                    name="weight"
+                    value={state.newPost.weight}
+                    onChange={handleChange}
+                  ></input>
                 </label>
                 <label>
                   <span>SETS</span>
@@ -194,11 +207,12 @@ export default function App() {
           {state.posts.map((s) => (
             <article key={s.post}>
               <div>{s.exercise}</div>
-              <div>{s.sets}</div>
-              <div>{s.reps}</div>
-              <div onClick={() => handleDelete(s._id)}>{"🚫"}</div>
+              <div>Weight: {s.weight}</div>
+              <div>Sets: {s.sets}</div>
+              <div>Reps: {s.reps}</div>
+              <div onClick={() => handleDelete(s._id)}>{"X"}</div>
               {!state.editMode && (
-                <div onClick={() => handleEdit(s._id)}>{"✏️"}</div>
+                <div onClick={() => handleEdit(s._id)}>{"EDIT"}</div>
               )}
             </article>
           ))}
