@@ -163,34 +163,38 @@ export default function App() {
         <section>
           {state.user && (
             <>
-              <form onSubmit={handleSubmit}>
+              <form class="top" onSubmit={handleSubmit}>
                 <label>
-                  <span>EXERCISE</span>
+                  EXERCISE:
                   <input
+                    type="text"
                     name="exercise"
                     value={state.newPost.exercise}
                     onChange={handleChange}
                   />
                 </label>
                 <label>
-                  <span>WEIGHT</span>
+                  WEIGHT:
                   <input
+                    type="text"
                     name="weight"
                     value={state.newPost.weight}
                     onChange={handleChange}
                   ></input>
                 </label>
                 <label>
-                  <span>SETS</span>
+                  SETS:
                   <input
+                    type="text"
                     name="sets"
                     value={state.newPost.sets}
                     onChange={handleChange}
                   ></input>
                 </label>
                 <label>
-                  <span>REPS</span>
+                  REPS:
                   <input
+                    type="text"
                     name="reps"
                     value={state.newPost.reps}
                     onChange={handleChange}
